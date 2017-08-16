@@ -17,8 +17,8 @@
 		<div id="map"></div>
 		<script type="text/javascript">
             function initMap() {
-                var address = {lat: 40.761, lng: -111.891};
-                //"{!SUBSTITUTE(JSENCODE(Property__c.Address__c),'\n',' ')} {!SUBSTITUTE(JSENCODE(Property__c.City__c),'\n',' ')} {!SUBSTITUTE(JSENCODE(Property__c.State__c),'\n',' ')}";
+                var address = "{!SUBSTITUTE(JSENCODE(Property__c.Address__c),'\n',' ')} {!SUBSTITUTE(JSENCODE(Property__c.City__c),'\n',' ')} {!SUBSTITUTE(JSENCODE(Property__c.State__c),'\n',' ')}";
+
                 var infowindow = new google.maps.InfoWindow({
                     content: "<b>{!Property__c.Address__c}</b><br>" + address + " "
                 });
@@ -29,8 +29,8 @@
                 var marker = new google.maps.Marker({
                     position: address,
                     map: map,
-                    title: "hello man"
-                    //"{!Property__c.Address__c}"
+                    title: "{!Property__c.Address__c}"
+
                 });
                 google.maps.event.addListener(marker, 'click', function() {
                     infowindow.open(map,marker);
